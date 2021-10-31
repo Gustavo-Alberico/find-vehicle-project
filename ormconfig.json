@@ -1,10 +1,10 @@
 {
    "type": "mysql",
-   "host": "localhost",
+   "host": "us-cdbr-east-04.cleardb.com",
    "port": 3306,
-   "username": "root",
-   "password": "YOUR_DB_PASSWORD",
-   "database": "vehicles-system",
+   "username": "b291a31892e464",
+   "password": "50169658",
+   "database": "heroku_cc8ba2743cd3005",
    "synchronize": false,
    "logging": false,
    "entities": [

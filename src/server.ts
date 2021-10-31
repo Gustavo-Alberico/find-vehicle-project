@@ -5,7 +5,7 @@ import { createConnection } from 'typeorm';
 createConnection()
   .then(async () => {
     const app = App();
-    let port = 8000;
+    let port = process.env.PORT || 3000;
     app.listen(port, () => {
       console.log(`server online in localhost:${port}`);
     });
