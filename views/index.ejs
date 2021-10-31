@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./partials/head"); %>
+    <link rel="stylesheet" href="/css/_index.css" />
+    <link rel="stylesheet" href="/css/_nav.css" />
+  </head>
+  <body>
+    <%- include('./partials/nav'); %>
+    <main>
+      <section class="hero-section">
+        <div class="hero-img-container">
+          <img
+            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1583&q=80"
+            alt="Garagem"
+          />
+        </div>
+        <div class="hero-text-container">
+          <h1>
+            <span class="color-text">Encontre</span> o que você
+            <span class="color-text">precisa</span>.
+          </h1>
+        </div>
+      </section>
+      <section>
+        <div class="cards-section">
+          <a href="/veiculo">
+            <div class="card-container">
+              <div class="card-img">
+                <img
+                  src="https://images.unsplash.com/photo-1585503418537-88331351ad99?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80"
+                  alt=""
+                />
+              </div>
+              <div class="card-body">
+                <h2>Cadastro</h2>
+              </div>
+            </div>
+          </a>
+
+          <a href="/listagem">
+            <div class="card-container">
+              <div class="card-img">
+                <img
+                  src="https://images.unsplash.com/photo-1531986627054-7f294d095acd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80"
+                  alt=""
+                />
+              </div>
+              <div class="card-body">
+                <h2>Listagem</h2>
+              </div>
+            </div>
+          </a>
+
+          <a href="/reserva">
+            <div class="card-container">
+              <div class="card-img">
+                <img
+                  src="https://images.unsplash.com/photo-1517579351329-f1897f2a953b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1472&q=80"
+                  alt=""
+                />
+              </div>
+              <div class="card-body">
+                <h2>Reserva</h2>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

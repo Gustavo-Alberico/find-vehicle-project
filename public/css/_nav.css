@@ -1,0 +1,46 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1b1b1b;
+}
+.menu-logo-container {
+  margin: 0px 0px 0px 50px;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  width: 320px;
+}
+.menu-logo-container h1 {
+  font-size: 50px;
+  color: #d83cff;
+}
+.menu-logo-container .color-text {
+  color: #ffffff;
+}
+.menu-link-container {
+  display: flex;
+}
+.menu-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.menu-link a {
+  color: #ffffff;
+  padding: 10px 15px;
+  margin: 10px;
+  transition: all ease-out 0.3s;
+}
+.menu-link a:hover {
+  background-color: #c9c9c9;
+  color: #000000;
+}
+.menu-link .special-link {
+  background-color: #c9c9c9;
+  color: #000000;
+}
+.menu-link .special-link:hover {
+  background-color: #d83cff;
+  color: #f1f1f1;
+}

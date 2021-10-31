@@ -1,0 +1,148 @@
+.container,
+.form-container,
+.form-title,
+.form-body,
+.form-input-date-container,
+.form-input-date,
+.form-input-select-container,
+.form-input-select-values,
+.form-input-select-py,
+.form-input-button-container,
+.form-input-button {
+  display: flex;
+}
+.container {
+  justify-content: center;
+  align-items: center;
+}
+.form-container {
+  background-color: #ffffff;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 50px;
+  border-radius: 8px;
+  justify-content: center;
+}
+.form-title {
+  justify-content: start;
+  margin: 10px 0 20px 0;
+}
+.form-title h1 {
+  color: #84469c;
+  font-size: 24px;
+}
+.form-body {
+  padding: 20px;
+  border: 1px solid #482357;
+  border-radius: 8px;
+  justify-content: center;
+  height: auto;
+}
+.form-input-date-container {
+  width: 100%;
+  margin: 0px 0px 10px 0px;
+  flex-direction: column;
+}
+.form-input-date {
+  justify-content: space-between;
+  width: 100%;
+  margin: 5px 0px;
+}
+.form-input-date label {
+  margin: 10px 0px;
+}
+.form-input-date input {
+  border: none;
+  margin: 0px 5px;
+  border-bottom: 1px solid #482357;
+}
+.form-input-date input:focus {
+  outline: none;
+}
+.form-input-select-container {
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0px;
+}
+.form-input-select-container select {
+  font-size: 14px;
+  border: none;
+  border-bottom: 1px solid #482357;
+  padding: 5px;
+  color: #84469c;
+  font-weight: 500;
+}
+.form-input-select-values {
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.form-input-select-py {
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  background-color: #532964;
+}
+.form-input-select-py label {
+  font-size: 16px;
+  padding: 5px 20px;
+  width: 60%;
+  color: #ffffff;
+}
+.form-input-select-py input {
+  width: 50%;
+  border: none;
+  padding: 5px;
+  margin-left: 5px;
+  user-select: none;
+  text-align: center;
+  color: #ffffff;
+  background-color: #532964;
+  border-radius: 0 10px 10px 0;
+}
+#plate-container {
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 5px;
+}
+#year-container {
+  border-radius: 0 0 8px 8px;
+}
+.form-input-select-py input:focus {
+  outline: none;
+}
+.form-input-button-container {
+  margin-top: 30px;
+  justify-content: space-between;
+}
+.form-input-button {
+  justify-content: center;
+  width: 48%;
+}
+.form-input-button input,
+.form-input-button a {
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  color: #ffffff;
+  background-color: #9a47bb;
+  font-size: 16px;
+  font-weight: 400;
+  transition: all ease-out 0.2s;
+  user-select: none;
+}
+.form-input-button a {
+  background-color: #b95565;
+}
+.redirect-btn {
+  background-color: #9a47bb;
+  display: inline-block;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all ease-out 0.3s;
+}
+.redirect-btn:hover {
+  background-color: #532964;
+}

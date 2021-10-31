@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/_vehicleCreate.css" />
+  </head>
+  <body>
+    <%- include('./partials/nav') %>
+    <main>
+      <section>
+        <div class="container">
+          <div class="form-container">
+            <h1>Cadastro de veículo</h1>
+            <form
+              action="/veiculo"
+              method="post"
+              name="registerVehicle"
+              class="form-vehicle-container"
+              onsubmit="return validateForm()"
+            >
+              <div class="form-input-model">
+                <label for="model">Modelo do veículo: </label>
+                <input
+                  type="text"
+                  required
+                  maxlength="50"
+                  name="model"
+                  id="model"
+                  placeholder="Ex.: CHEVROLET ONIX"
+                />
+              </div>
+              <div class="form-inputs-container">
+                <div class="form-input" id="plateV">
+                  <label for="plate">Placa: </label>
+                  <input
+                    type="text"
+                    required
+                    minlength="7"
+                    maxlength="7"
+                    name="plate"
+                    id="plate"
+                    placeholder="AAA0A00"
+                    oninput="this.value = this.value.toUpperCase(); plateVerify(this.value)"
+                  />
+                </div>
+                <div class="form-input">
+                  <label for="year">Ano:</label>
+                  <input
+                    type="text"
+                    name="year"
+                    id="year"
+                    required
+                    minlength="4"
+                    maxlength="4"
+                    placeholder="2021"
+                  />
+                </div>
+              </div>
+              <div class="form-input-radio">
+                <label for="Status">Estado: </label>
+                <input
+                  checked
+                  type="radio"
+                  value="1"
+                  name="status"
+                  id="status1"
+                />
+                <label for="status">Disponível</label>
+                <input type="radio" value="2" name="status" id="status2" />
+                <label for="status">Manutenção</label>
+              </div>
+              <div class="form-input-submit">
+                <input type="submit" value="ENVIAR" />
+                <a href="/">CANCELAR</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script>
+    let urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('success') && urlParams.get('success')) {
+      Swal.fire({
+        title: 'Cadastrado!',
+        text: 'Veículo cadastrado com sucesso.',
+        icon: 'success',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(() => {
+        console.log(window.location.hostname);
+        window.location.replace(window.location.origin + '/veiculo');
+      });
+    }
+  </script>
+  <script src="/scripts/vehicleCreate.js"></script>
+</html>

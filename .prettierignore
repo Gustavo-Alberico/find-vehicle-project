@@ -1,0 +1,9 @@
+/node_modules
+
+.prettierignore
+.prettierrc
+ormconfig.json
+package-lock.json
+package.json
+yarn.lock
+tsconfig.json
