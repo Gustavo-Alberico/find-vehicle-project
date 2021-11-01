@@ -92,7 +92,13 @@ const selectChange = document
 function changeValues(i, data) {
   let plate = document.getElementById('plate');
   let year = document.getElementById('year');
+
+  if (data[i] == undefined) {
+    return;
+  }
+
   vehicleObj = data[i];
+  console.log(data);
 
   plate.value = data[i].plate;
   year.value = data[i].year;
