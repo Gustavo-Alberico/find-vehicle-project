@@ -1,0 +1,22 @@
+.footer {
+  background-color: #1b1b1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.footer-elements {
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.footer-elements h4 {
+  margin-right: 15px;
+}
+.footer-elements a {
+  color: #6192d3;
+  margin: 0 5px;
+  text-decoration: underline;
+}
