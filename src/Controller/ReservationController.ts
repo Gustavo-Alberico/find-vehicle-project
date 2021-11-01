@@ -21,6 +21,8 @@ export default class ReservationController {
   }
 
   static reservationListPost(req: Request, res: Response) {
+    console.log(req.body);
+
     const vehicle: Vehicle = req.body.vehicle;
     const { startDate, endDate, status }: Reservation = req.body;
 

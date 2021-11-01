@@ -5,225 +5,60 @@
   </head>
   <body>
     <%- include('./partials/nav') %>
-    <section class="container-tabs">
-      <div class="tab">
-        <a class="tabLink active" href="#" onclick="selectTab(event)"
-          >Reservas</a
-        >
-        <a class="tabLink" href="#" onclick="selectTab(event)">Veículos</a>
-      </div>
-    </section>
     <section class="main-container">
+      <% content.forEach((element, index) => { %>
       <div class="card-container">
         <div class="card-body">
-          <h1 class="card-title">Reserva</h1>
-          <div class="card-date">
-            <p>Datas</p>
-            <p>Início: 14/10/2021 10:00:00</p>
-            <p>Fim: 14/10/2021 10:00:00</p>
+          <div class="title-container">
+            <h1 class="card-title"><%= element.model %></h1>
+            <h1 class="card-title">#<%= element.id %></h1>
           </div>
           <div class="card-vehicle">
-            <p>Veículo</p>
-            <p>Modelo: Volkswagen GOL</p>
-            <p>Placa: ERT-2020</p>
+            <p>Placa: <%= element.plate %></p>
+            <p>Ano: <%= element.year %></p>
           </div>
-          <div>
-            <a href="#" class="card-link">CONFIRMAR</a>
-            <a href="#" class="card-link">CANCELAR</a>
+          <% if(element.reservations.length === 0){ %>
+          <p class="status">Veículo não possui histórico de reservas</p>
+          <% } else {%>
+          <button class="accordion">
+            <% if(element.reservations.length > 1) { %>
+            <span>Reservas</span>
+            <% } else{ %>
+            <span>Reserva</span>
+            <%} %>
+          </button>
+          <div class="panel">
+            <% for(let i = 0; i < element.reservations.length; i++) { %>
+            <div class="card-date">
+              <p>Reserva Nº: #<%= element.reservations[i].id %></p>
+              <p>
+                Início da reserva: <%=
+                element.reservations[i].startDate.toLocaleString('pt-BR') %>
+              </p>
+              <p>
+                Fim da reserva: <%=
+                element.reservations[i].endDate.toLocaleString('pt-BR') %>
+              </p>
+              <% if(element.reservations[i].status === 1){ %>
+              <p>Estado da reserva: <span class="statusC">Confirmado</span></p>
+              <% } else{%>
+              <p>Estado da reserva: <span class="status">Cancelado</span></p>
+              <% } %>
+            </div>
+            <%} %>
           </div>
+          <% } %>
         </div>
       </div>
-      <div class="card-container">
-        <div class="card-body">
-          <h1 class="card-title">Reserva</h1>
-          <div class="card-date">
-            <p>Datas</p>
-            <p>Início: 14/10/2021 10:00:00</p>
-            <p>Fim: 14/10/2021 10:00:00</p>
-          </div>
-          <div class="card-vehicle">
-            <p>Veículo</p>
-            <p>Modelo: Volkswagen GOL</p>
-            <p>Placa: ERT-2020</p>
-          </div>
-          <div>
-            <a href="#" class="card-link">CONFIRMAR</a>
-            <a href="#" class="card-link">CANCELAR</a>
-          </div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="card-body">
-          <h1 class="card-title">Reserva</h1>
-          <div class="card-date">
-            <p>Datas</p>
-            <p>Início: 14/10/2021 10:00:00</p>
-            <p>Fim: 14/10/2021 10:00:00</p>
-          </div>
-          <div class="card-vehicle">
-            <p>Veículo</p>
-            <p>Modelo: Volkswagen GOL</p>
-            <p>Placa: ERT-2020</p>
-          </div>
-          <div>
-            <a href="#" class="card-link">CONFIRMAR</a>
-            <a href="#" class="card-link">CANCELAR</a>
-          </div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="card-body">
-          <h1 class="card-title">Reserva</h1>
-          <div class="card-date">
-            <p>Datas</p>
-            <p>Início: 14/10/2021 10:00:00</p>
-            <p>Fim: 14/10/2021 10:00:00</p>
-          </div>
-          <div class="card-vehicle">
-            <p>Veículo</p>
-            <p>Modelo: Volkswagen GOL</p>
-            <p>Placa: ERT-2020</p>
-          </div>
-          <div>
-            <a href="#" class="card-link">CONFIRMAR</a>
-            <a href="#" class="card-link">CANCELAR</a>
-          </div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="card-body">
-          <h1 class="card-title">Reserva</h1>
-          <div class="card-date">
-            <p>Datas</p>
-            <p>Início: 14/10/2021 10:00:00</p>
-            <p>Fim: 14/10/2021 10:00:00</p>
-          </div>
-          <div class="card-vehicle">
-            <p>Veículo</p>
-            <p>Modelo: Volkswagen GOL</p>
-            <p>Placa: ERT-2020</p>
-          </div>
-          <div>
-            <a href="#" class="card-link">CONFIRMAR</a>
-            <a href="#" class="card-link">CANCELAR</a>
-          </div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="card-body">
-          <h1 class="card-title">Reserva</h1>
-          <div class="card-date">
-            <p>Datas</p>
-            <p>Início: 14/10/2021 10:00:00</p>
-            <p>Fim: 14/10/2021 10:00:00</p>
-          </div>
-          <div class="card-vehicle">
-            <p>Veículo</p>
-            <p>Modelo: Volkswagen GOL</p>
-            <p>Placa: ERT-2020</p>
-          </div>
-          <div>
-            <a href="#" class="card-link">CONFIRMAR</a>
-            <a href="#" class="card-link">CANCELAR</a>
-          </div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="card-body">
-          <h1 class="card-title">Reserva</h1>
-          <div class="card-date">
-            <p>Datas</p>
-            <p>Início: 14/10/2021 10:00:00</p>
-            <p>Fim: 14/10/2021 10:00:00</p>
-          </div>
-          <div class="card-vehicle">
-            <p>Veículo</p>
-            <p>Modelo: Volkswagen GOL</p>
-            <p>Placa: ERT-2020</p>
-          </div>
-          <div>
-            <a href="#" class="card-link">CONFIRMAR</a>
-            <a href="#" class="card-link">CANCELAR</a>
-          </div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="card-body">
-          <h1 class="card-title">Reserva</h1>
-          <div class="card-date">
-            <p>Datas</p>
-            <p>Início: 14/10/2021 10:00:00</p>
-            <p>Fim: 14/10/2021 10:00:00</p>
-          </div>
-          <div class="card-vehicle">
-            <p>Veículo</p>
-            <p>Modelo: Volkswagen GOL</p>
-            <p>Placa: ERT-2020</p>
-          </div>
-          <div>
-            <a href="#" class="card-link">CONFIRMAR</a>
-            <a href="#" class="card-link">CANCELAR</a>
-          </div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="card-body">
-          <h1 class="card-title">Reserva</h1>
-          <div class="card-date">
-            <p>Datas</p>
-            <p>Início: 14/10/2021 10:00:00</p>
-            <p>Fim: 14/10/2021 10:00:00</p>
-          </div>
-          <div class="card-vehicle">
-            <p>Veículo</p>
-            <p>Modelo: Volkswagen GOL</p>
-            <p>Placa: ERT-2020</p>
-          </div>
-          <div>
-            <a href="#" class="card-link">CONFIRMAR</a>
-            <a href="#" class="card-link">CANCELAR</a>
-          </div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="card-body">
-          <h1 class="card-title">Reserva</h1>
-          <div class="card-date">
-            <p>Datas</p>
-            <p>Início: 14/10/2021 10:00:00</p>
-            <p>Fim: 14/10/2021 10:00:00</p>
-          </div>
-          <div class="card-vehicle">
-            <p>Veículo</p>
-            <p>Modelo: Volkswagen GOL</p>
-            <p>Placa: ERT-2020</p>
-          </div>
-          <div>
-            <a href="#" class="card-link">CONFIRMAR</a>
-            <a href="#" class="card-link">CANCELAR</a>
-          </div>
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="card-body">
-          <h1 class="card-title">Reserva</h1>
-          <div class="card-date">
-            <p>Datas</p>
-            <p>Início: 14/10/2021 10:00:00</p>
-            <p>Fim: 14/10/2021 10:00:00</p>
-          </div>
-          <div class="card-vehicle">
-            <p>Veículo</p>
-            <p>Modelo: Volkswagen GOL</p>
-            <p>Placa: ERT-2020</p>
-          </div>
-          <div>
-            <a href="#" class="card-link">CONFIRMAR</a>
-            <a href="#" class="card-link">CANCELAR</a>
-          </div>
-        </div>
-      </div>
+      <% }) %>
     </section>
+    <script>
+      let lar = '<%= content %>';
+
+      // let json = JSON.parse(lar);
+      console.log();
+    </script>
   </body>
+
   <script src="/scripts/list.js"></script>
 </html>

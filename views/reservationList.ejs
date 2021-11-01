@@ -66,31 +66,7 @@
   <script>
     let urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('success') && urlParams.get('success')) {
-      Swal.fire({
-        title: 'Reserva provisória cadastrada!',
-        icon: 'info',
-        allowOutsideClick: false,
-        allowEscapeKey: false,
-        allowEnterKey: false,
-        height: '450px',
-        showConfirmButton: false,
-        html:
-          'As reservas ficam armazenadas na página de listagem.' +
-          '<br />' +
-          '<br />' +
-          '<a class="redirect-btn" href="/listagem">' +
-          'VER RESERVA' +
-          '</a>',
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer);
-          toast.addEventListener('mouseleave', Swal.resumeTimer);
-        },
-        timer: 4000,
-        timerProgressBar: true,
-      }).then(() => {
-        console.log(window.location.hostname);
-        window.location.replace(window.location.origin + '/reserva');
-      });
+      window.location.replace(window.location.origin + '/reserva');
     }
   </script>
   <script src="/scripts/reservationList.js"></script>

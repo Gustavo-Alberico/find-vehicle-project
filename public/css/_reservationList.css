@@ -146,3 +146,46 @@
 .redirect-btn:hover {
   background-color: #532964;
 }
+
+/* Modal reservation */
+.container-modal {
+  display: flex;
+  background-color: #84469c;
+  border-radius: 30px 8px 30px 8px;
+  justify-content: center;
+}
+.card-container {
+  border-radius: 8px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  width: 350px;
+}
+.card-body {
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 15px;
+}
+.status {
+  color: #3b56b1;
+}
+.card-vehicle {
+  padding-bottom: 5px;
+  display: flex;
+  margin-top: 5px;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+}
+.card-vehicle p {
+  margin-bottom: 5px;
+}
+.card-date {
+  margin-top: 10px;
+}
+.card-date p {
+  padding: 5px 0;
+}

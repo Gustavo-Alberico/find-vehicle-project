@@ -69,7 +69,7 @@ function validateForm() {
   // Validate plate
   if (!regexPlate.test(plate)) {
     insertError(
-      `Placa ${plate} inválida, a place deve seguir os padrões "AAA0000" ou "AAA0A00"`
+      `Placa "${plate}" inválida, a placa deve seguir os padrões AAA0000 ou AAA0A00`
     );
     return false;
   }

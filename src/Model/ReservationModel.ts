@@ -9,16 +9,18 @@ export default class ReservationModel {
     FROM vehicle v  
     LEFT JOIN reservation r 
       ON v.id  = r.vehicleId 
-    WHERE r.status > 1 OR  v.id NOT IN
+    WHERE v.id NOT IN
       (
         SELECT v2.id 
         FROM reservation r2 
         JOIN vehicle v2 
             ON r2.vehicleId = v2.id 
-        WHERE 
-        '${startDate}' < endDate AND '${endDate}' < endDate  OR
-        '${startDate}' < startDate AND '${endDate}' > startDate 
-      )
+        WHERE r2.status = 1 and
+	        r2.startDate > '${startDate}' and r2.startDate < '${endDate}' OR
+	        r2.endDate > '${startDate}' AND r2.endDate  < '${endDate}'    OR 
+			r2.startDate < '${startDate}' AND r2.endDate > '${endDate}' OR 
+			r2.startDate > '${startDate}' AND r2.endDate < '${endDate}' 
+      ) 
     GROUP BY v.id`);
   }
 

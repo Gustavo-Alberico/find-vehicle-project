@@ -2,55 +2,119 @@
 .tab,
 .main-container,
 .card-body,
-.card-container {
+.card-container,
+.title-container {
   display: flex;
+}
+body {
+  background-color: #f1f1f1;
 }
 .container-tabs {
   margin: 10px 15px 0px 15px;
 }
 .tab a {
-  background-color: #ffffff;
+  background-color: #542b55;
   padding: 10px 15px;
   margin: 0px 2px;
-  color: #000000;
+  color: #ffffff;
   transition: all ease-in 0.3s;
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 2px solid #542b55;
 }
 .tab .active {
-  background-color: #5f5f5f;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
   border-bottom: 2px solid #bb54d4;
 }
 .main-container {
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: start;
-  background-color: #5f5f5f;
+  width: 100%;
+  flex-wrap: wrap;
 }
 .card-container {
   border-radius: 8px;
   margin: 10px;
+  display: flex;
   justify-content: center;
-  background-color: #7640da;
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 300px;
 }
 .card-body {
   flex-direction: column;
-  margin: 2px;
   border-radius: 8px;
-  background-color: #d6d6d6;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.5);
   width: 100%;
+  padding: 15px;
+  justify-content: center;
+}
+.title-container {
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #964ca8;
 }
 .card-title {
-  padding: 5px;
-  margin-bottom: 10px;
+  margin: 0px 0 10px 5px;
   color: #964ca8;
 }
-.card-date {
-  padding: 5px;
-  margin: 0 0 10px 0;
+.status {
+  color: #990d0d;
+}
+.statusC {
+  color: #9eff6a;
 }
 .card-vehicle {
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+}
+.card-body p {
+  text-align: center;
+  margin-top: 15px;
+}
+.card-date {
+  margin-top: 15px;
   padding: 5px;
-  margin: 0 0 10px 0;
+  /* border: 1px solid #542b55; */
+  background-color: #bb63d1;
+  color: #ffffff;
+  border-radius: 8px;
+}
+.card-date p {
+  padding: 5px 0;
+}
+.accordion {
+  background-color: #bb63d1;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.active,
+.accordion:hover {
+  background-color: #563c6b;
+}
+.accordion:after {
+  content: '\002B';
+  color: #ffffff;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+.active:after {
+  content: '\2212';
+}
+.panel {
+  padding: 0 5px;
+  background-color: #563c6b;
+  max-height: 0;
+  overflow-y: scroll;
+  transition: max-height 0.2s ease-out;
 }

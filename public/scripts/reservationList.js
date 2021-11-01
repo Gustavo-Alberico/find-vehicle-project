@@ -93,7 +93,6 @@ function changeValues(i, data) {
   let plate = document.getElementById('plate');
   let year = document.getElementById('year');
   vehicleObj = data[i];
-  console.log(data);
 
   plate.value = data[i].plate;
   year.value = data[i].year;
@@ -101,14 +100,14 @@ function changeValues(i, data) {
   year.setAttribute('disabled', '');
 }
 
-// fetch to send object to back-end
+// Validation and modal reservation confirm
 let sendFormData = document
   .getElementById('send')
   .addEventListener('click', (e) => {
     const formData = {
       startDate: startDate,
       endDate: endDate,
-      status: 3,
+      status: 1,
       vehicle: vehicleObj,
     };
 
@@ -127,33 +126,104 @@ let sendFormData = document
 
       Toast.fire({
         icon: 'error',
-        title: 'Fim da reserva deve ser maior que data de início ',
+        title:
+          'Data "Fim da reserva" deve ser maior que data "Início da reserva"',
       });
       e.preventDefault();
       return false;
     }
 
-    fetch('/reserva', {
-      method: 'POST',
-      body: JSON.stringify(formData),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      .then((response) => {
-        if (response.redirected) {
-          window.location.href = response.url;
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    e.preventDefault();
-    return true;
+    Swal.fire({
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      title: 'Reserva provisória',
+      html:
+        // prettier-ignore
+        '<div class="container-modal">'+
+          '<div class="card-container">' +
+            '<div class="card-body">' +
+              '<div class="card-date">' +
+                `<p>Início da reserva: ${formData.startDate.replaceAll('-', '/').replace('T', ' ')}</p>` +
+                `<p>Fim da reserva: ${formData.endDate.replaceAll('-', '/').replace('T', ' ')}</p>`+
+                '<p>Estado da reserva: <spam class="status">provisória</spam></p>' +
+              '</div>' +
+                '<h3>'+'Veículo'+'</h3>'+
+              '<div class="card-vehicle">' +
+              `<p>${formData.vehicle.model}</p>` +
+                `<p>${formData.vehicle.plate}</p>`+
+                '</div>' +
+            '</div>' +
+            '</div>'+
+        '</div>'+
+        '</br>'+
+        'O que deseja fazer?',
+      showConfirmButton: true,
+      confirmButtonText: 'CONFIRMAR RESERVA',
+      confirmButtonColor: '#9a47bb',
+      showDenyButton: true,
+      denyButtonText: 'CANCELAR RESERVA',
+      showCancelButton: true,
+      cancelButtonText: 'VOLTAR',
+    }).then(function (event) {
+      if (event.isDismissed) {
+        Swal.fire({
+          title: 'Reserva provisória desfeita!',
+          icon: 'info',
+        });
+        e.preventDefault();
+        return false;
+      }
+      if (event.isConfirmed) {
+        Swal.fire({
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          allowEnterKey: false,
+          title: 'Reserva confirmada com sucesso!',
+          icon: 'success',
+        }).then((res) => {
+          e.preventDefault();
+          registerReservation(formData);
+          return true;
+        });
+      } else {
+        Swal.fire({
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          allowEnterKey: false,
+          title: 'Reserva cancelada!',
+          icon: 'error',
+        }).then((res) => {
+          formData.status = 2;
+          e.preventDefault();
+          registerReservation(formData);
+          return true;
+        });
+      }
+    });
   });
 
 // Compare differences between two dates
 function getDifferenceDate(date1, date2) {
   const diffInMs = Math.floor(date2 - date1);
   return diffInMs / (1000 * 60);
+}
+
+// fetch to send object to back-end
+function registerReservation(data) {
+  fetch('/reserva', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((response) => {
+      if (response.redirected) {
+        window.location.href = response.url;
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }

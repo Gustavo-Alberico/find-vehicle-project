@@ -4,7 +4,7 @@
   background-color: #1b1b1b;
 }
 .menu-logo-container {
-  margin: 0px 0px 0px 50px;
+  margin-left: 50px;
   display: flex;
   align-items: center;
   height: 64px;
@@ -43,4 +43,27 @@
 .menu-link .special-link:hover {
   background-color: #d83cff;
   color: #f1f1f1;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-logo-container {
+    margin-left: 15px;
+    width: 220px;
+  }
+  .menu-logo-container h1 {
+    font-size: 32px;
+  }
+  .menu-link a {
+    padding: 5px;
+    margin: 5px;
+  }
+}
+@media screen and (max-width: 531px) {
+  .menu-logo-container {
+    margin-left: 0px;
+    width: 160px;
+  }
+  .menu-logo-container h1 {
+    font-size: 22px;
+  }
 }
